@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { buyPiggelin, addPiggelin } from './actions/icecreamActions';
+import { useDispatch } from 'react-redux';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  function buy() {
+    //vill vi då kalla på vår action till vårt biträde
+    dispatch(buyPiggelin(1))
+  }
+
+  function add() {
+    dispatch(addPiggelin(1))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <button onClick={buy}>KÖP 1</button>
+      <button onClick={add}>LÄGG TILL 1</button>
+    </main>
   );
 }
 
